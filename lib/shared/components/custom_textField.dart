@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?) validator;
   final bool obscureText;
   final String labelText;
+  TextEditingController? titleController;
 
   CustomTextField({
     required this.hintText,
@@ -13,6 +14,7 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     required this.validator,
     required this.labelText,
+    required this.titleController,
   });
 
   @override
@@ -22,6 +24,7 @@ class CustomTextField extends StatelessWidget {
       children: [
         Text(labelText) ,
         TextFormField(
+          controller: titleController,
           obscureText: obscureText,
           keyboardType: keyboardType,
           decoration: InputDecoration(

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:task1_intern2grow/layout/LogInScreen.dart';
+import '../Providers/my_provider.dart';
 import '../shared/components/Custom_ElevatedButton.dart';
 import '../shared/components/Custom_ImgIcon.dart';
 import '../shared/components/Custom_TextShow.dart';
@@ -17,11 +19,10 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _profileScreeenState extends State<ProfileScreen> {
-  get formKey => null;
 
   @override
-
   Widget build(BuildContext context) {
+    var pro =Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Container(
@@ -50,30 +51,27 @@ class _profileScreeenState extends State<ProfileScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [Positioned(
-                    top: AppBar().preferredSize.height + 90,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    child: CustomImgIcon(
-                      iconPath: 'assets/images/Rectangle 1136.png',
-                      text: '6463463416416',),
-                  ),
+                  children: [
+                    CustomImgIcon(
+                    iconPath: 'assets/images/Rectangle 1136.png',
+                    text:'${pro.accountData?.namee}'  ),
+
+
                     CustomTextShow(
                       labelText: 'Username',
-                      initialValue: 'mariam',
+                      initialValue: '${pro.accountData?.namee}',
                     ),//name
                     const SizedBox(height: 20),
 
                     CustomTextShow(
-                      labelText: 'Email Address',
-                      initialValue: 'emailData',
-                    ),//email
+                      labelText: 'email',
+                      initialValue: '${pro.accountData?.email}',
+                    ),//name
                     const SizedBox(height: 20),
 
                     CustomTextShow(
                       labelText: 'generat',
-                      initialValue: 'emailData',
+                      initialValue: '${pro.accountData!.gender}',
                     ),//generat
                     const SizedBox(height: 20),
 
