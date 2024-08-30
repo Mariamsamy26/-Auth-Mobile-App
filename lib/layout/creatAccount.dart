@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:task1_intern2grow/layout/profileScreen.dart';
-import 'package:unique_names_generator/unique_names_generator.dart';
 import '../Providers/my_provider.dart';
 import '../shared/components/Custom_ElevatedButton.dart';
 import '../shared/components/Custom_ImgIcon.dart';
@@ -13,6 +12,7 @@ import 'LogInScreen.dart';
 import '../shared/remote/network/firebase_function.dart';
 
 const List<String> listGender = <String>['Male', 'Female'];
+
 
 class CreatAccountScreen extends StatefulWidget {
   static const String rountName = 'Creat';
